@@ -1,0 +1,17 @@
+C:\Users\dusti\source\repos\The vault\bin\Debug\The vault.exe.config
+C:\Users\dusti\source\repos\The vault\bin\Debug\The vault.exe
+C:\Users\dusti\source\repos\The vault\bin\Debug\The vault.pdb
+C:\Users\dusti\source\repos\The vault\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\dusti\source\repos\The vault\bin\Debug\Guna.UI.dll
+C:\Users\dusti\source\repos\The vault\bin\Debug\Leaf.xNet.dll
+C:\Users\dusti\source\repos\The vault\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dusti\source\repos\The vault\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.csprojAssemblyReference.cache
+C:\Users\dusti\source\repos\The vault\obj\Debug\The_vault.Properties.Resources.resources
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.csproj.GenerateResource.cache
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.csproj.CoreCompileInputs.cache
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.csproj.CopyComplete
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.exe
+C:\Users\dusti\source\repos\The vault\obj\Debug\The vault.pdb
+C:\Users\dusti\source\repos\The vault\obj\Debug\The_vault.Login.resources
+C:\Users\dusti\source\repos\The vault\obj\Debug\The_vault.MainForm.resources
