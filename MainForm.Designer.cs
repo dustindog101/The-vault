@@ -33,6 +33,7 @@
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
             this.lblusr = new Guna.UI.WinForms.GunaLabel();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
@@ -51,7 +52,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -89,6 +89,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 42);
             this.panel1.TabIndex = 7;
+            // 
+            // lbltitleitems
+            // 
+            this.lbltitleitems.AutoSize = true;
+            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbltitleitems.Location = new System.Drawing.Point(538, 23);
+            this.lbltitleitems.Name = "lbltitleitems";
+            this.lbltitleitems.Size = new System.Drawing.Size(28, 15);
+            this.lbltitleitems.TabIndex = 14;
+            this.lbltitleitems.Text = "000";
             // 
             // lblusr
             // 
@@ -165,7 +176,7 @@
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(19, 21);
+            this.gunaLabel1.Location = new System.Drawing.Point(19, 23);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
             this.gunaLabel1.TabIndex = 10;
@@ -178,7 +189,7 @@
             this.txtwebs.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtwebs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtwebs.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtwebs.Location = new System.Drawing.Point(80, 13);
+            this.txtwebs.Location = new System.Drawing.Point(80, 15);
             this.txtwebs.Name = "txtwebs";
             this.txtwebs.PasswordChar = '\0';
             this.txtwebs.Size = new System.Drawing.Size(164, 26);
@@ -205,7 +216,7 @@
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(496, 21);
+            this.gunaLabel4.Location = new System.Drawing.Point(496, 23);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(62, 15);
             this.gunaLabel4.TabIndex = 13;
@@ -216,7 +227,7 @@
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel2.Location = new System.Drawing.Point(253, 21);
+            this.gunaLabel2.Location = new System.Drawing.Point(253, 23);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(40, 15);
             this.gunaLabel2.TabIndex = 12;
@@ -229,7 +240,7 @@
             this.txtpassw.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtpassw.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtpassw.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtpassw.Location = new System.Drawing.Point(557, 13);
+            this.txtpassw.Location = new System.Drawing.Point(557, 15);
             this.txtpassw.Name = "txtpassw";
             this.txtpassw.PasswordChar = '●';
             this.txtpassw.Size = new System.Drawing.Size(174, 26);
@@ -243,7 +254,7 @@
             this.txtlgn.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtlgn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtlgn.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtlgn.Location = new System.Drawing.Point(314, 13);
+            this.txtlgn.Location = new System.Drawing.Point(314, 15);
             this.txtlgn.Name = "txtlgn";
             this.txtlgn.PasswordChar = '\0';
             this.txtlgn.Size = new System.Drawing.Size(174, 26);
@@ -297,17 +308,6 @@
             // 
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 165;
-            // 
-            // lbltitleitems
-            // 
-            this.lbltitleitems.AutoSize = true;
-            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbltitleitems.Location = new System.Drawing.Point(538, 23);
-            this.lbltitleitems.Name = "lbltitleitems";
-            this.lbltitleitems.Size = new System.Drawing.Size(28, 15);
-            this.lbltitleitems.TabIndex = 14;
-            this.lbltitleitems.Text = "000";
             // 
             // MainForm
             // 
