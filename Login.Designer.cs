@@ -78,12 +78,12 @@
             this.txtuser.BackColor = System.Drawing.SystemColors.Control;
             this.txtuser.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtuser.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtuser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.txtuser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.txtuser.LineColor = System.Drawing.Color.Gainsboro;
             this.txtuser.Location = new System.Drawing.Point(86, 124);
             this.txtuser.Name = "txtuser";
             this.txtuser.PasswordChar = '\0';
-            this.txtuser.Size = new System.Drawing.Size(276, 26);
+            this.txtuser.Size = new System.Drawing.Size(276, 32);
             this.txtuser.TabIndex = 1;
             // 
             // txtpass
@@ -91,13 +91,14 @@
             this.txtpass.BackColor = System.Drawing.SystemColors.Control;
             this.txtpass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtpass.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtpass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.txtpass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.txtpass.LineColor = System.Drawing.Color.Gainsboro;
             this.txtpass.Location = new System.Drawing.Point(86, 194);
             this.txtpass.Name = "txtpass";
-            this.txtpass.PasswordChar = '\0';
-            this.txtpass.Size = new System.Drawing.Size(276, 26);
+            this.txtpass.PasswordChar = '●';
+            this.txtpass.Size = new System.Drawing.Size(276, 32);
             this.txtpass.TabIndex = 2;
+            this.txtpass.UseSystemPasswordChar = true;
             // 
             // gunaLabel1
             // 
@@ -125,6 +126,7 @@
             // 
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.gunaLabel3.Location = new System.Drawing.Point(86, 0);
@@ -139,6 +141,7 @@
             this.panel1.Controls.Add(this.gunaControlBox2);
             this.panel1.Controls.Add(this.gunaControlBox1);
             this.panel1.Controls.Add(this.gunaLabel3);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(377, 42);
@@ -147,6 +150,7 @@
             // gunaControlBox2
             // 
             this.gunaControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaControlBox2.Animated = true;
             this.gunaControlBox2.AnimationHoverSpeed = 0.07F;
             this.gunaControlBox2.AnimationSpeed = 0.03F;
             this.gunaControlBox2.ControlBoxType = Guna.UI.WinForms.FormControlBoxType.MinimizeBox;
@@ -163,10 +167,12 @@
             // gunaControlBox1
             // 
             this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaControlBox1.Animated = true;
             this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
             this.gunaControlBox1.AnimationSpeed = 0.03F;
+            this.gunaControlBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gunaControlBox1.IconColor = System.Drawing.Color.Black;
-            this.gunaControlBox1.IconSize = 15F;
+            this.gunaControlBox1.IconSize = 20F;
             this.gunaControlBox1.Location = new System.Drawing.Point(325, 4);
             this.gunaControlBox1.Name = "gunaControlBox1";
             this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
