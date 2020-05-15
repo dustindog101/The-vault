@@ -13,7 +13,7 @@ namespace The_vault
        private static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
        private static string iv = "s6v9y/B?E(H+MbQe";//THE IV
         public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login";//where data will be stored
-        public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\data.txt";
+        public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\data.txt";//file locatuin
         public static bool start(string username, string password)
         {
             string u = username;//grab the username
@@ -32,7 +32,7 @@ namespace The_vault
                 {
 
 
-                    byte[] converted = Encoding.ASCII.GetBytes($"{u}:{p}");
+                    byte[] converted = Encoding.ASCII.GetBytes($"{u}:{p}");//convert the user/pwd(string) into bytes so that it can be encrypted
                     byte[]enc = encryptdata(converted, key, iv);
                     Savetofile(file, enc);//save the encrypted text to a file.
                 }

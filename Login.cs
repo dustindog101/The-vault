@@ -13,7 +13,9 @@ namespace The_vault
 {
     public partial class Login : Form
     {
-        public static bool log = false;
+        public static bool log = false;/// <summary>
+        /// this will be true if the user is logged in
+        /// </summary>
         public Login()
         {
             InitializeComponent();
