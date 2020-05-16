@@ -52,6 +52,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,7 +72,7 @@
             this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(306, 0);
+            this.gunaLabel3.Location = new System.Drawing.Point(3, 5);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(136, 37);
             this.gunaLabel3.TabIndex = 5;
@@ -80,7 +81,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.lbltitleitems);
             this.panel1.Controls.Add(this.lblusr);
             this.panel1.Controls.Add(this.gunaControlBox2);
             this.panel1.Controls.Add(this.gunaControlBox1);
@@ -95,7 +95,7 @@
             this.lbltitleitems.AutoSize = true;
             this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbltitleitems.Location = new System.Drawing.Point(538, 23);
+            this.lbltitleitems.Location = new System.Drawing.Point(7, 0);
             this.lbltitleitems.Name = "lbltitleitems";
             this.lbltitleitems.Size = new System.Drawing.Size(28, 15);
             this.lbltitleitems.TabIndex = 14;
@@ -106,7 +106,7 @@
             this.lblusr.AutoSize = true;
             this.lblusr.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
             this.lblusr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblusr.Location = new System.Drawing.Point(5, 15);
+            this.lblusr.Location = new System.Drawing.Point(145, 19);
             this.lblusr.Name = "lblusr";
             this.lblusr.Size = new System.Drawing.Size(89, 23);
             this.lblusr.TabIndex = 8;
@@ -197,6 +197,7 @@
             // 
             // gunaLinePanel1
             // 
+            this.gunaLinePanel1.Controls.Add(this.lbltitleitems);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel4);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel2);
             this.gunaLinePanel1.Controls.Add(this.txtpassw);
@@ -272,6 +273,7 @@
             // 
             this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
             this.headwebsite,
             this.columnHeader1,
             this.columnHeader2,
@@ -309,6 +311,10 @@
             // 
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 165;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID:";
             // 
             // MainForm
             // 
@@ -355,5 +361,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private Guna.UI.WinForms.GunaLabel lbltitleitems;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

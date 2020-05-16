@@ -13,6 +13,7 @@ namespace The_vault
 {
     public partial class MainForm : Form
     {
+        private int id = 0;
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
@@ -47,9 +48,10 @@ namespace The_vault
                    
 
 
-                    var items = new ListViewItem(txtwebs.Text);//create a list of items to add essentally
+                    var items = new ListViewItem(id.ToString());//create a list of items to add essentally
+                    items.SubItems.Add(txtwebs.Text);
                     items.SubItems.Add(txtlgn.Text);
-                    items.SubItems.Add(pwd);
+                    items.SubItems.Add(txtpassw.Text);
                     items.SubItems.Add(DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));//grab the date and time and add it
                     listView1.Items.Add(items);//add all of the items we created
                 }
@@ -63,6 +65,7 @@ namespace The_vault
                 MessageBox.Show("You must enter a valid website!");
             }
            lbltitleitems.Text= updateitems(listView1);//update every time they click da button
+            id++;
         }
 
         private void ListView1_DoubleClick(object sender, EventArgs e)
@@ -79,7 +82,7 @@ namespace The_vault
             catch (Exception ex)
             {
 
-                MessageBox.Show($"An error appeared:{ex.Message}");
+                MessageBox.Show($"A error appeared:{ex.Message}");
             }
         }
     }
