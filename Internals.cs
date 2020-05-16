@@ -10,8 +10,8 @@ namespace The_vault
 {
     public static class Internals
     {
-       private static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
-       private static string iv = "s6v9y/B?E(H+MbQe";//THE IV
+       public static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
+       public static string iv = "s6v9y/B?E(H+MbQe";//THE IV
         public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login";//where data will be stored
         public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\data.txt";//file locatuin
         public static bool start(string username, string password)
@@ -62,7 +62,7 @@ namespace The_vault
             {
 
 
-                if (inp.Contains("http://") || inp.Contains("https://"))//make sure the site is http or https if not than its not even a site lol
+                if (inp.ToLower().Contains("http://") || inp.Contains("https://"))//make sure the site is http or https if not than its not even a site lol
                 {
                     if (inp.Contains("."))//this is for domains for example (.)com or (.)tech see
                     {
@@ -154,7 +154,7 @@ namespace The_vault
                 throw;
             }
         }
-        private static byte[] encryptdata(byte[] bytearraytoencrypt, string key, string iv)//make it byte just in case we need to encrypt a file :shrug:
+        public static byte[] encryptdata(byte[] bytearraytoencrypt, string key, string iv)//make it byte just in case we need to encrypt a file :shrug:
         {
             try
             {

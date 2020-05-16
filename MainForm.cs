@@ -27,7 +27,7 @@ namespace The_vault
         private void GunaButton1_Click(object sender, EventArgs e)
         {
             string pwd = "Click to reveal.";//dont store unencrypted password
-            bool valweb = Internals.validatewebsite(txtwebs.Text);//they are both booleans so i could remove these to lower time and increase speed
+            bool valweb = Internals.validatewebsite(txtwebs.Text.ToLower());//they are both booleans so i could remove these to lower time and increase speed
             bool vallgn = Internals.validateuserandpass(txtlgn.Text);//^
             bool valps = Internals.validateuserandpass(txtpassw.Text);//^^
             if (  valweb ==true)
@@ -63,6 +63,15 @@ namespace The_vault
                 MessageBox.Show("You must enter a valid website!");
             }
            lbltitleitems.Text= updateitems(listView1);//update every time they click da button
+        }
+
+        private void ListView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem item = listView1.SelectedItems[0];
+                MessageBox.Show(item.SubItems[0].ToString());
+            }
         }
     }
 }
