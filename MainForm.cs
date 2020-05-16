@@ -35,6 +35,16 @@ namespace The_vault
                 if (vallgn == true & valps == true)
                 {
 
+                    string json = serilize.serilizeitems(txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+                    if (!json.Contains("Error"))
+                    {
+                     serilize.saveitems(json);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error uploading credentials to server...please try again...");
+                    }
+                   
 
 
                     var items = new ListViewItem(txtwebs.Text);//create a list of items to add essentally
