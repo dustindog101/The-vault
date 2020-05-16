@@ -67,10 +67,19 @@ namespace The_vault
 
         private void ListView1_DoubleClick(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
+            try
             {
-                ListViewItem item = listView1.SelectedItems[0];
-                MessageBox.Show(item.SubItems[0].ToString());
+
+            
+            if (listView1.SelectedItems.Count > 0)// some validation
+            {
+                MessageBox.Show($"The password for {listView1.SelectedItems[0].Text} is {listView1.SelectedItems[0].SubItems[2].Text}");
+            }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"An error appeared:{ex.Message}");
             }
         }
     }
