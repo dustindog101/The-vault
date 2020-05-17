@@ -97,9 +97,9 @@
             this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbltitleitems.Location = new System.Drawing.Point(7, 0);
             this.lbltitleitems.Name = "lbltitleitems";
-            this.lbltitleitems.Size = new System.Drawing.Size(28, 15);
+            this.lbltitleitems.Size = new System.Drawing.Size(22, 15);
             this.lbltitleitems.TabIndex = 14;
-            this.lbltitleitems.Text = "000";
+            this.lbltitleitems.Text = "???";
             // 
             // gunaControlBox2
             // 
@@ -313,9 +313,9 @@
             this.gunaLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.gunaLabel5.Location = new System.Drawing.Point(130, 13);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(415, 30);
+            this.gunaLabel5.Size = new System.Drawing.Size(395, 30);
             this.gunaLabel5.TabIndex = 8;
-            this.gunaLabel5.Text = "-The best Open-Source Password vault";
+            this.gunaLabel5.Text = "-A local Open-Source Password vault";
             // 
             // MainForm
             // 

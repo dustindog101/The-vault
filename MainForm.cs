@@ -17,7 +17,12 @@ namespace The_vault
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
-            
+            //           string poopie = deserialize.deserializeitems(File.ReadAllText(Internals.directory + @"\accounts" + Environment.UserName + ".data"));
+            //  MessageBox.Show(poopie);
+            byte[] hi = Encoding.ASCII.GetBytes("helloo");
+            string poop = Convert.ToBase64String(Internals.encryptdata(hi,Internals.key,Internals.iv));
+            byte[] abc = Convert.FromBase64String(poop);
+            MessageBox.Show(poop+Environment.NewLine+BitConverter.ToString( abc)+Environment.NewLine+ Internals.encryptdata(hi, Internals.key, Internals.iv));
         }
         private static string updateitems(ListView l)
         {
