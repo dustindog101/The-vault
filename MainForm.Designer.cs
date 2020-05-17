@@ -34,7 +34,6 @@
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
-            this.lblusr = new Guna.UI.WinForms.GunaLabel();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaDragControl2 = new Guna.UI.WinForms.GunaDragControl(this.components);
@@ -53,6 +52,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,7 +81,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.lblusr);
+            this.panel1.Controls.Add(this.gunaLabel5);
             this.panel1.Controls.Add(this.gunaControlBox2);
             this.panel1.Controls.Add(this.gunaControlBox1);
             this.panel1.Controls.Add(this.gunaLabel3);
@@ -100,17 +100,6 @@
             this.lbltitleitems.Size = new System.Drawing.Size(28, 15);
             this.lbltitleitems.TabIndex = 14;
             this.lbltitleitems.Text = "000";
-            // 
-            // lblusr
-            // 
-            this.lblusr.AutoSize = true;
-            this.lblusr.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
-            this.lblusr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblusr.Location = new System.Drawing.Point(145, 19);
-            this.lblusr.Name = "lblusr";
-            this.lblusr.Size = new System.Drawing.Size(89, 23);
-            this.lblusr.TabIndex = 8;
-            this.lblusr.Text = "Welcome:";
             // 
             // gunaControlBox2
             // 
@@ -316,6 +305,18 @@
             // 
             this.columnHeader4.Text = "ID:";
             // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.gunaLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaLabel5.Location = new System.Drawing.Point(130, 13);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(415, 30);
+            this.gunaLabel5.TabIndex = 8;
+            this.gunaLabel5.Text = "-The best Open-Source Password vault";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +346,6 @@
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl2;
-        private  Guna.UI.WinForms.GunaLabel lblusr;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
@@ -362,5 +362,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private Guna.UI.WinForms.GunaLabel lbltitleitems;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private Guna.UI.WinForms.GunaLabel gunaLabel5;
     }
 }

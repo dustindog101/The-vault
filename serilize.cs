@@ -7,7 +7,7 @@ namespace The_vault
 {
    public class serilize
     {
-        public static string serilizeitems(string web, string user, string pwd, string date)
+        public static string serilizeitems(int id,string web, string user, string pwd, string date)
         {
             try
             {//i copied the code from internals and edited so i dont have tim eto remove the comments and recomment
@@ -27,7 +27,7 @@ namespace The_vault
 
                 Items newitem = new Items//new item item
             {
-                website = web1str, username = user1str, password = pwd1str, date = date1str
+                ID=id,website = web1str, username = user1str, password = pwd1str, date = date1str
 
         };
             var items = JsonConvert.SerializeObject(newitem, Formatting.Indented);//serilize

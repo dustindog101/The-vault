@@ -16,9 +16,9 @@ namespace The_vault
         private int id = 0;
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
+            byte[] poopie = Encoding.ASCII.GetBytes("POOPNIGGA");
             InitializeComponent();
-            lblusr.Text += Internals.grabusername();//label is equal to welcome, so its going to be welcome, +username
-            
+            MessageBox.Show(Internals.poopencryptdata(poopie,Internals.key,Internals.iv)+Environment.NewLine+Internals.encryptdata(poopie, Internals.key,Internals.iv));
             
         }
         private static string updateitems(ListView l)
@@ -36,7 +36,7 @@ namespace The_vault
                 if (vallgn == true & valps == true)
                 {
 
-                    string json = serilize.serilizeitems(txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+                    string json = serilize.serilizeitems(id,txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
                     if (!json.Contains("Error"))
                     {
                      serilize.saveitems(json);

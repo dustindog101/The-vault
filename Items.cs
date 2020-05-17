@@ -8,6 +8,7 @@ namespace The_vault
 {
     class Items
     {
+        public int ID {get;set;}
         public string website { get; set; }
         public string username { get; set; }
         public string password { get; set; }
