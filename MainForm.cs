@@ -16,9 +16,7 @@ namespace The_vault
         private int id = 0;
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
-            byte[] poopie = Encoding.ASCII.GetBytes("POOPNIGGA");
             InitializeComponent();
-            MessageBox.Show(Internals.poopencryptdata(poopie,Internals.key,Internals.iv)+Environment.NewLine+Internals.encryptdata(poopie, Internals.key,Internals.iv));
             
         }
         private static string updateitems(ListView l)
@@ -27,7 +25,7 @@ namespace The_vault
         }
         private void GunaButton1_Click(object sender, EventArgs e)
         {
-            string pwd = "Click to reveal.";//dont store unencrypted password
+            string pwd = "Click to reveal.";//dont store unencrypted password this is 
             bool valweb = Internals.validatewebsite(txtwebs.Text.ToLower());//they are both booleans so i could remove these to lower time and increase speed
             bool vallgn = Internals.validateuserandpass(txtlgn.Text);//^
             bool valps = Internals.validateuserandpass(txtpassw.Text);//^^
