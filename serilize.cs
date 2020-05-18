@@ -1,12 +1,15 @@
 ﻿using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
-
+using System.Data;
+using System.Linq;
 namespace The_vault
 {
-   public class serilize
+   public class serialize
     {
+        
         public static string serilizeitems(int id,string web, string user, string pwd, string date)
         {
             try
@@ -24,14 +27,13 @@ namespace The_vault
                 byte[] converted4 = Encoding.ASCII.GetBytes(date);//convert the user/pwd(string) into bytes so that it can be encrypted
                 byte[] date1 = Internals.encryptdata(converted4, Internals.key, Internals.iv);
                 string date1str = Encoding.ASCII.GetString(date1);//convert the byte array back to string so that i can serilizw
-
-                Items newitem = new Items//new item item
+                // poopie
+                Items items = new Items//new item item
             {
                ID=id, website = web1str, username = user1str, password = pwd1str, date = date1str
 
         };
-            var items = JsonConvert.SerializeObject(newitem, Formatting.Indented);//serilize
-                return items;
+            return JsonConvert.SerializeObject(new[]{ items},Formatting.Indented);
             }
             catch (Exception ex)
             {
@@ -39,6 +41,12 @@ namespace The_vault
                 
             }
             
+        }
+        public static string deserialize(string JSON)
+        {
+            List<Items> poop = JsonConvert.DeserializeObject<List<Items>>(JSON);
+            Items items = poop[0];
+            return $"{items.ID.ToString()} {items.website} {items.username} {items.password}";
         }
         public static void saveitems(string json)
         {
@@ -57,5 +65,20 @@ namespace The_vault
                throw;
             }
         }
+    }
+    public class deserialize
+    {
+        public static string  poopie(string input)
+        {
+
+            var serializer = new JsonSerializer();
+
+            using (var sw = new StreamReader(input))
+            using (var reader = new JsonTextReader(sw))
+            {
+                return serializer.Deserialize(reader).ToString();
+            }
+        }
+
     }
 }
