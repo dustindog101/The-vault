@@ -99,6 +99,7 @@
             this.txtpass.Size = new System.Drawing.Size(276, 32);
             this.txtpass.TabIndex = 2;
             this.txtpass.UseSystemPasswordChar = true;
+            this.txtpass.Enter += new System.EventHandler(this.Txtpass_Enter);
             // 
             // gunaLabel1
             // 
@@ -193,7 +194,6 @@
             // timer1
             // 
             this.timer1.Interval = 5;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Login
             // 
@@ -209,7 +209,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -219,7 +218,7 @@
 
         #endregion
 
-        private Guna.UI.WinForms.GunaButton btnlogin;
+        public Guna.UI.WinForms.GunaButton btnlogin;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;

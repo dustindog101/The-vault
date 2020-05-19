@@ -19,17 +19,59 @@ namespace The_vault
         public Login()
         {
             InitializeComponent();
-            
+            if (Internals.checklogin() ==false)
+            {
+                gunaLabel3.Text = "Register";
+            }
+
         }
         private void GunaControlBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();//exit when exit button is clicked
+            Application.ExitThread();
+
+            Environment.Exit(0);
         }
         private void GunaButton1_Click(object sender, EventArgs e)
         {
 
+            if (Internals.checklogin() == true)
+            {
+                login();
 
 
+            }
+            else
+            {
+                register();
+            }
+
+          
+        }
+
+        private void login()
+        {
+
+            if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
+            {
+                if (txtuser.Text == Internals.grabusername()&& txtpass.Text == Internals.grabpassword())
+                {
+                    MessageBox.Show("Logged in!");
+                    this.Hide();//hide form
+                    MainForm frm = new MainForm();//create new form main
+                    frm.Show();//show it
+                }
+                else
+                {
+                    MessageBox.Show("Please check your username/password!", "Invalid login credentials");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check your username/password!", "Invalid login credentials");
+            }
+        }
+      private void register()
+        {
             if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
             {
 
@@ -55,15 +97,8 @@ namespace The_vault
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void Txtpass_Enter(object sender, EventArgs e)
         {
-           
-
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-           
         }
     }
 

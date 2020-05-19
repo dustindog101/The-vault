@@ -33,9 +33,10 @@
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
+            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
             this.gunaDragControl2 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
@@ -47,12 +48,11 @@
             this.txtlgn = new Guna.UI.WinForms.GunaLineTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headwebsite = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,16 +90,17 @@
             this.panel1.Size = new System.Drawing.Size(803, 42);
             this.panel1.TabIndex = 7;
             // 
-            // lbltitleitems
+            // gunaLabel5
             // 
-            this.lbltitleitems.AutoSize = true;
-            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbltitleitems.Location = new System.Drawing.Point(7, 0);
-            this.lbltitleitems.Name = "lbltitleitems";
-            this.lbltitleitems.Size = new System.Drawing.Size(22, 15);
-            this.lbltitleitems.TabIndex = 14;
-            this.lbltitleitems.Text = "???";
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.gunaLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaLabel5.Location = new System.Drawing.Point(130, 13);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(395, 30);
+            this.gunaLabel5.TabIndex = 8;
+            this.gunaLabel5.Text = "-A local Open-Source Password vault";
             // 
             // gunaControlBox2
             // 
@@ -131,6 +132,18 @@
             this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
             this.gunaControlBox1.TabIndex = 6;
+            this.gunaControlBox1.Click += new System.EventHandler(this.GunaControlBox1_Click);
+            // 
+            // lbltitleitems
+            // 
+            this.lbltitleitems.AutoSize = true;
+            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbltitleitems.Location = new System.Drawing.Point(7, 0);
+            this.lbltitleitems.Name = "lbltitleitems";
+            this.lbltitleitems.Size = new System.Drawing.Size(22, 15);
+            this.lbltitleitems.TabIndex = 14;
+            this.lbltitleitems.Text = "???";
             // 
             // gunaDragControl2
             // 
@@ -236,6 +249,7 @@
             this.txtpassw.Size = new System.Drawing.Size(174, 26);
             this.txtpassw.TabIndex = 12;
             this.txtpassw.UseSystemPasswordChar = true;
+            this.txtpassw.TextChanged += new System.EventHandler(this.Txtpassw_TextChanged);
             // 
             // txtlgn
             // 
@@ -281,6 +295,10 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.DoubleClick += new System.EventHandler(this.ListView1_DoubleClick);
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID:";
+            // 
             // headwebsite
             // 
             this.headwebsite.Text = "Website";
@@ -300,22 +318,6 @@
             // 
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 165;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "ID:";
-            // 
-            // gunaLabel5
-            // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel5.Location = new System.Drawing.Point(130, 13);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(395, 30);
-            this.gunaLabel5.TabIndex = 8;
-            this.gunaLabel5.Text = "-A local Open-Source Password vault";
             // 
             // MainForm
             // 

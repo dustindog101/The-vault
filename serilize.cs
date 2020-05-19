@@ -7,6 +7,9 @@ using System.Data;
 using System.Linq;
 namespace The_vault
 {
+    public class getitems
+    {
+    }
    public class serialize
     {
         
@@ -46,7 +49,11 @@ namespace The_vault
         {
             List<Items> poop = JsonConvert.DeserializeObject<List<Items>>(JSON);
             Items items = poop[0];
-            return $"{items.ID.ToString()} {items.website} {items.username} {items.password}";
+            string i = items.ID.ToString();
+            string w = items.website;
+            string u = items.username;
+            string p = items.password;
+            return $"{poop}";
         }
         public static void saveitems(string json)
         {

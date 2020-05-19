@@ -16,17 +16,10 @@ namespace The_vault
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Internals.checklogin() == true)//if the users are logged in
-            {
-
-                MessageBox.Show($"Welcome back, {Internals.grabusername()}!", "Welcome!");
-                Application.Run(new MainForm());//start main form
-               
-            }
-            else
-            {
+              
+           
                 Application.Run(new Login());//start login form
-            }
+            
             
         }
     }

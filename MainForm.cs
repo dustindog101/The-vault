@@ -17,12 +17,18 @@ namespace The_vault
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
-            //           string poopie = deserialize.deserializeitems(File.ReadAllText(Internals.directory + @"\accounts" + Environment.UserName + ".data"));
-            //  MessageBox.Show(poopie);
+            if (File.Exists(Internals.directory + @"\accounts" + Environment.UserName + ".data"))
+            {
+ string poopie = serialize.deserialize(File.ReadAllText(Internals.directory + @"\accounts" + Environment.UserName + ".data"));
+            MessageBox.Show(poopie);
+            }
+           
             byte[] hi = Encoding.ASCII.GetBytes("helloo");
             string poop = Convert.ToBase64String(Internals.encryptdata(hi,Internals.key,Internals.iv));
             byte[] abc = Convert.FromBase64String(poop);
             MessageBox.Show(poop+Environment.NewLine+BitConverter.ToString( abc)+Environment.NewLine+ Internals.encryptdata(hi, Internals.key, Internals.iv));
+            MessageBox.Show($"Welcome back, {Internals.grabusername()}!");
+            
         }
         private static string updateitems(ListView l)
         {
@@ -39,10 +45,10 @@ namespace The_vault
                 if (vallgn == true & valps == true)
                 {
 
-                    string json = serilize.serilizeitems(id,txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+                    string json = serialize.serilizeitems(id,txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
                     if (!json.Contains("Error"))
                     {
-                     serilize.saveitems(json);
+                     serialize.saveitems(json);
                     }
                     else
                     {
@@ -87,6 +93,18 @@ namespace The_vault
 
                 MessageBox.Show($"A error appeared:{ex.Message}");
             }
+        }
+
+        private void GunaControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+
+            Environment.Exit(0);
+        }
+
+        private void Txtpassw_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

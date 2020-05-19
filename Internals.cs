@@ -13,7 +13,7 @@ namespace The_vault
        public static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
        public static string iv = "s6v9y/B?E(H+MbQe";//THE IV
         public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login";//where data will be stored
-        public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\data.txt";//file locatuin
+        public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\logindata.data";//file locatuin
         public static bool start(string username, string password)
         {
             string u = username;//grab the username
@@ -112,7 +112,18 @@ namespace The_vault
             string[] user = username.Split(':');//split the decrypted string into two parts
             return user[0];
         }
-    public static bool validate(string inp)//simple input validation just to make sure the user and or pass is sorta secure
+        public static string grabpassword()
+        {
+            // byte[] converted = Encoding.ASCII.GetBytes(inp);
+            byte[] p = File.ReadAllBytes(Internals.file);
+
+
+
+            string username = Encoding.ASCII.GetString(decryptdata(p, key, iv));//cibvert the byte to a string
+            string[] user = username.Split(':');//split the decrypted string into two parts
+            return user[1];
+        }
+        public static bool validate(string inp)//simple input validation just to make sure the user and or pass is sorta secure
         {
 
             if (inp !="")//check if box is equal to nothing
@@ -154,7 +165,7 @@ namespace The_vault
                 throw;
             }
         }
-        public static string poopencryptdata(byte[] bytearraytoencrypt, string key, string iv)//make it byte just in case we need to encrypt a file :shrug:
+        public static string poopencryptdata(byte[]  bytearraytoencrypt, string key, string iv)//make it byte just in case we need to encrypt a file :shrug:
         {
             try
             {
