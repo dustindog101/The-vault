@@ -48,13 +48,20 @@ namespace The_vault
         }
         public static string deserialize(string JSON)
         {
-            List<Items> poop = JsonConvert.DeserializeObject<List<Items>>(JSON);
-            Items items = poop[0];
-            string i = items.ID.ToString();
-            string w = items.website;
-            string u = items.username;
-            string p = items.password;
-            return $"{poop}";
+            try
+            {
+                List<Items> poop = JsonConvert.DeserializeObject<List<Items>>(JSON);
+                Items items = poop[0];
+                string i = items.ID.ToString();
+                string w = items.website;
+                string u = items.username;
+                string p = items.password;
+                return $"{poop}";
+            }
+            catch(Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
         }
         public static void saveitems(string json)
         {
