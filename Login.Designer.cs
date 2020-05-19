@@ -49,6 +49,7 @@
             // 
             this.btnlogin.AnimationHoverSpeed = 0.07F;
             this.btnlogin.AnimationSpeed = 0.03F;
+            this.btnlogin.BackColor = System.Drawing.Color.Transparent;
             this.btnlogin.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.btnlogin.BorderColor = System.Drawing.Color.Black;
             this.btnlogin.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -64,6 +65,7 @@
             this.btnlogin.OnHoverForeColor = System.Drawing.Color.White;
             this.btnlogin.OnHoverImage = null;
             this.btnlogin.OnPressedColor = System.Drawing.Color.Black;
+            this.btnlogin.Radius = 2;
             this.btnlogin.Size = new System.Drawing.Size(51, 54);
             this.btnlogin.TabIndex = 0;
             this.btnlogin.Text = "LOGIN";
@@ -71,6 +73,7 @@
             // 
             // gunaElipse1
             // 
+            this.gunaElipse1.Radius = 2;
             this.gunaElipse1.TargetControl = this;
             // 
             // txtuser
@@ -85,9 +88,11 @@
             this.txtuser.PasswordChar = '\0';
             this.txtuser.Size = new System.Drawing.Size(276, 32);
             this.txtuser.TabIndex = 1;
+            this.txtuser.TextOffsetX = 10;
             // 
             // txtpass
             // 
+            this.txtpass.Animated = true;
             this.txtpass.BackColor = System.Drawing.SystemColors.Control;
             this.txtpass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtpass.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -98,6 +103,7 @@
             this.txtpass.PasswordChar = '●';
             this.txtpass.Size = new System.Drawing.Size(276, 32);
             this.txtpass.TabIndex = 2;
+            this.txtpass.TextOffsetX = 10;
             this.txtpass.UseSystemPasswordChar = true;
             this.txtpass.Enter += new System.EventHandler(this.Txtpass_Enter);
             // 
@@ -197,6 +203,7 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.btnlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 439);
