@@ -13,7 +13,21 @@ namespace The_vault
     }
    public class serialize
     {
-        
+        public static string appenditesm(string JSON,int id, string web, string user, string pwd, string date)
+        {
+            var list = JsonConvert.DeserializeObject<List<Items>>(JSON);
+            Items item = new Items
+            {
+                ID = id,
+                website = web,
+                username = user,
+                password = pwd,
+                date = date
+            };
+
+            list.Add(item);
+            return  JsonConvert.SerializeObject(list, Formatting.Indented);
+        }
         public static string serilizeitems(int id,string web, string user, string pwd, string date)
         {
             try
@@ -31,13 +45,23 @@ namespace The_vault
                 byte[] converted4 = Encoding.ASCII.GetBytes(date);//convert the user/pwd(string) into bytes so that it can be encrypted
                 byte[] date1 = Internals.encryptdata(converted4, Internals.key, Internals.iv);
                 string date1str = Encoding.ASCII.GetString(date1);//convert the byte array back to string so that i can serilizw
-                // poopie
-                Items items = new Items//new item item
-            {
+                                                                  // poopie
+                Items item = new Items
+
+                //new item item
+                {
+
                ID=id, website = web1str, username = user1str, password = pwd1str, date = date1str
 
         };
-            return JsonConvert.SerializeObject(new[]{ items},Formatting.Indented);
+
+              
+
+                    List<Items> items = new List<Items>();
+                    items.Add(item);
+                   
+                    return JsonConvert.SerializeObject(new[] { items }, Formatting.Indented);
+                
             }
             catch (Exception ex)
             {
@@ -50,6 +74,7 @@ namespace The_vault
         {
             try
             {
+               
                 List<Items> poop = JsonConvert.DeserializeObject<List<Items>>(JSON);
                 Items items = poop[0];
                 string i = items.ID.ToString();
@@ -66,18 +91,27 @@ namespace The_vault
         public static void saveitems(string json)
         {
             try
+
             {
+                if (!Directory.Exists(Internals.directory + @"\accounts"))
+                {
+                    Directory.CreateDirectory(Internals.directory + @"\accounts");
 
+                }
 
+               
+                
+                
+                    File.AppendAllText(Internals.directory + @"\accounts\accounts" + Environment.UserName + ".data", $"{json}{Environment.NewLine}");
+                
 
-                File.AppendAllText(Internals.directory + @"\accounts" + Environment.UserName + ".data",$"{json}{Environment.NewLine}");
 
                 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-               throw;
+
+                Internals.writeerro("Save"+e.Message);
             }
         }
     }

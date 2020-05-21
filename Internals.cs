@@ -12,7 +12,7 @@ namespace The_vault
     {
        public static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
        public static string iv = "s6v9y/B?E(H+MbQe";//THE IV
-        public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login";//where data will be stored
+        public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault";//where data will be stored
         public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\logindata.data";//file locatuin
         public static bool start(string username, string password)
         {
@@ -26,7 +26,7 @@ namespace The_vault
             else//if the file doesnt exist than created and everything
             {
 
-                Directory.CreateDirectory(directory);//create it
+                Directory.CreateDirectory(directory+@"\login");//create it
 
                 try
                 {
@@ -145,6 +145,16 @@ namespace The_vault
 
         }
 
+        public static void writeerro(string input)
+        {
+
+            if (!Directory.Exists(directory + @"\errors"))
+            {
+                Directory.CreateDirectory(directory + @"\errors");
+
+            }
+            File.AppendAllText( directory+@"\errors\errors.data", $"{DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy")} |  {input}\n---------------\n");
+        }
         private static void Savetofile(string location, byte[] input)
         {
             try

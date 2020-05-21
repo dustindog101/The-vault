@@ -53,6 +53,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gunaDragControl3 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -323,6 +324,10 @@
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 165;
             // 
+            // gunaDragControl3
+            // 
+            this.gunaDragControl3.TargetControl = this.gunaLabel5;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.gunaButton1;
@@ -371,5 +376,6 @@
         private Guna.UI.WinForms.GunaLabel lbltitleitems;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
+        private Guna.UI.WinForms.GunaDragControl gunaDragControl3;
     }
 }

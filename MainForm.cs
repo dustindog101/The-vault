@@ -17,9 +17,9 @@ namespace The_vault
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
-            if (File.Exists(Internals.directory + @"\accounts" + Environment.UserName + ".data"))
+            if (File.Exists(Internals.directory + @"\accounts\accounts" + Environment.UserName + ".data"))
             {
- string poopie = serialize.deserialize(File.ReadAllText(Internals.directory + @"\accounts" + Environment.UserName + ".data"));
+ string poopie = serialize.deserialize(File.ReadAllText(Internals.directory + @"\accounts\accounts" + Environment.UserName + ".data"));
             MessageBox.Show(poopie);
             }
            
@@ -45,29 +45,41 @@ namespace The_vault
                 if (vallgn == true & valps == true)
                 {
 
-                    string json = serialize.serilizeitems(id,txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+                    string json = serialize.serilizeitems(id, txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
                     if (!json.Contains("Error"))
                     {
-                     serialize.saveitems(json);
+                        serialize.saveitems(json);
                     }
                     else
                     {
-                        MessageBox.Show("Error uploading credentials to server...please try again...");
+                        MessageBox.Show($"Error uploading credentials to server...please try again...  {json}");
+                        Internals.writeerro(json);
+
                     }
-                   
 
+                    try
+                    {
 
-                    var items = new ListViewItem(id.ToString());//create a list of items to add essentally
-                    items.SubItems.Add(txtwebs.Text);
-                    items.SubItems.Add(txtlgn.Text);
-                    items.SubItems.Add(txtpassw.Text);
-                    items.SubItems.Add(DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));//grab the date and time and add it
-                    listView1.Items.Add(items);//add all of the items we created
+                        var items = new ListViewItem(id.ToString());//create a list of items to add essentally
+                        items.SubItems.Add(txtwebs.Text);
+                        items.SubItems.Add(txtlgn.Text);
+                        items.SubItems.Add(txtpassw.Text);
+                        items.SubItems.Add(DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));//grab the date and time and add it
+                        listView1.Items.Add(items);//add all of the items we created
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error: {ex.Message}");
+
+                    }
                 }
+
                 else
                 {
                     MessageBox.Show("You must enter a valid login/password!");
                 }
+
             }
             else
             {
