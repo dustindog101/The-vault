@@ -54,9 +54,15 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gunaDragControl3 = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -298,6 +304,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             this.listView1.DoubleClick += new System.EventHandler(this.ListView1_DoubleClick);
             // 
             // columnHeader4
@@ -328,6 +335,41 @@
             // 
             this.gunaDragControl3.TargetControl = this.gunaLabel5;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteSelectedItemToolStripMenuItem,
+            this.showPasswordToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 48);
+            // 
+            // deleteSelectedItemToolStripMenuItem
+            // 
+            this.deleteSelectedItemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editValueToolStripMenuItem,
+            this.deleteValueToolStripMenuItem});
+            this.deleteSelectedItemToolStripMenuItem.Name = "deleteSelectedItemToolStripMenuItem";
+            this.deleteSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.deleteSelectedItemToolStripMenuItem.Text = "Edit selected value";
+            // 
+            // editValueToolStripMenuItem
+            // 
+            this.editValueToolStripMenuItem.Name = "editValueToolStripMenuItem";
+            this.editValueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.editValueToolStripMenuItem.Text = "Edit value";
+            // 
+            // deleteValueToolStripMenuItem
+            // 
+            this.deleteValueToolStripMenuItem.Name = "deleteValueToolStripMenuItem";
+            this.deleteValueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.deleteValueToolStripMenuItem.Text = "Delete value";
+            // 
+            // showPasswordToolStripMenuItem
+            // 
+            this.showPasswordToolStripMenuItem.Name = "showPasswordToolStripMenuItem";
+            this.showPasswordToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.showPasswordToolStripMenuItem.Text = "Show password";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.gunaButton1;
@@ -346,6 +388,7 @@
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -377,5 +420,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteSelectedItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showPasswordToolStripMenuItem;
     }
 }

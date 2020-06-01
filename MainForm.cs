@@ -11,12 +11,14 @@ using System.IO;
 using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
+using Microsoft.VisualBasic;
 
 namespace The_vault
 {
     public partial class MainForm : Form
     {
         private int id = 0;
+        private string pas = "";
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
@@ -26,7 +28,12 @@ namespace The_vault
             if (File.Exists(@"Vault\accounts\accounts.csv"))
             {
                 readcsv();
-            } 
+                id = listView1.Items.Count;
+            }
+            else
+            {
+                Directory.CreateDirectory(@"Vault\accounts");;
+            }
         }
         private static string updateitems(ListView l)
         {
@@ -44,44 +51,24 @@ namespace The_vault
                 {
 
                     //  string json = serialize.serilizeitems(id, txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
-                    try
-                    {
-                        CsvConfiguration csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
-                        {
-                            HasHeaderRecord = !File.Exists(@"Vault\accounts\accounts.csv")
-                        };
 
-                        var records = new List<Items> { };
-                        records.Add(new Items { ID = id, website = txtwebs.Text, username = txtlgn.Text, password = txtpassw.Text, date = DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy") });
-                        using (FileStream fileStream = new FileStream(@"Vault\accounts\accounts.csv", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
-                        {
-                            using (var writer = new StreamWriter(fileStream))
-                            using (var csv = new CsvWriter(writer, csvConfig))
-                            {
-                                csv.WriteRecords(records);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show("Error! Please check error lo!");
-                        Internals.writeerro(ex.Message);
-                    }
+                    writecsv();//
                     try
                     {
 
                         var items = new ListViewItem(id.ToString());//create a list of items to add essentally
-                        items.SubItems.Add(txtwebs.Text);
-                        items.SubItems.Add(txtlgn.Text);
-                        items.SubItems.Add(txtpassw.Text);
+                        items.SubItems.Add(txtwebs.Text);//add wevsute to listbox
+                        items.SubItems.Add(txtlgn.Text);//add login to listvbox
+                        items.SubItems.Add(txtpassw.Text);//add pass
                         items.SubItems.Add(DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));//grab the date and time and add it
                         listView1.Items.Add(items);//add all of the items we created
+                        
                     }
 
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error: {ex.Message}");
+                        Internals.writeerro(ex.Message);
 
                     }
                 }
@@ -108,7 +95,14 @@ namespace The_vault
             
             if (listView1.SelectedItems.Count > 0)// some validation
             {
-                MessageBox.Show($"The password for {listView1.SelectedItems[0].Text} is {listView1.SelectedItems[0].SubItems[2].Text}");
+                    if (MessageBox.Show("Would you like to delte this value?","",MessageBoxButtons.YesNo,MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        listView1.SelectedItems[0].Remove();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Okay!");
+                    }
             }
             }
             catch (Exception ex)
@@ -134,16 +128,83 @@ namespace The_vault
                 foreach (var person in records)
                 {
                     var items = new ListViewItem(person.ID.ToString());//create a list of items to add essentally
-                    items.SubItems.Add(person.website);
-                    items.SubItems.Add(person.username);
-                    items.SubItems.Add(person.password);
-                    items.SubItems.Add(person.date);//grab the date and time and add it
+                    items.SubItems.Add(Encoding.ASCII.GetString(Internals.decryptdata(Convert.FromBase64String(person.website), Internals.key, Internals.iv)));
+                    items.SubItems.Add(Encoding.ASCII.GetString(Internals.decryptdata(Convert.FromBase64String(person.username), Internals.key, Internals.iv)));
+                    items.SubItems.Add(Encoding.ASCII.GetString(Internals.decryptdata(Convert.FromBase64String(person.password),Internals.key,Internals.iv)));
+                    items.SubItems.Add(Encoding.ASCII.GetString(Internals.decryptdata(Convert.FromBase64String(person.date), Internals.key, Internals.iv)));//grab the date and time and add it
                     listView1.Items.Add(items);//add all of the items we created
                 }
             }
 
         }
+        public void SaveCSV()
+        {
+            CsvConfiguration csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                HasHeaderRecord = !File.Exists(@"Vault\accounts\accounts.csv")
+            };
+
+            var records = new List<Items> { };
+        /*   foreach  (ListViewItem listViewItem in listView1.Items)
+            {
+                records.Add(new Items { ID = id, website = _Web, username = _Usr, password = _Pass, date = _Date });//im lazy ill finsih later
+            }
+          */ 
+            using (FileStream fileStream = new FileStream(@"Vault\accounts\accounts.csv", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+            {
+                using (var writer = new StreamWriter(fileStream))
+                using (var csv = new CsvWriter(writer, csvConfig))
+                {
+                    csv.WriteRecords(records);
+                }
+            }
+        }
+        public void writecsv()
+        {
+            try
+            {
+                //convert all these values to bytes so that i can encrypt it later
+                byte[] _web = Encoding.ASCII.GetBytes(txtwebs.Text);
+                byte[] _usr = Encoding.ASCII.GetBytes(txtlgn.Text);
+                byte[] _lgn = Encoding.ASCII.GetBytes(txtpassw.Text);
+                byte[] _date = Encoding.ASCII.GetBytes(DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+
+                //encyrpt the bytes
+
+                String _Web = Convert.ToBase64String(Internals.encryptdata(_web, Internals.key, Internals.iv));
+                String _Usr = Convert.ToBase64String(Internals.encryptdata(_usr, Internals.key, Internals.iv));
+                String _Pass = Convert.ToBase64String(Internals.encryptdata(_lgn, Internals.key, Internals.iv));
+                String _Date = Convert.ToBase64String(Internals.encryptdata(_date, Internals.key, Internals.iv));
+                
+                CsvConfiguration csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+                {
+                    HasHeaderRecord = !File.Exists(@"Vault\accounts\accounts.csv")
+                };
+
+                var records = new List<Items> { };
+                records.Add(new Items { ID = id, website = _Web, username = _Usr, password = _Pass, date = _Date });
+                using (FileStream fileStream = new FileStream(@"Vault\accounts\accounts.csv", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                {
+                    using (var writer = new StreamWriter(fileStream))
+                    using (var csv = new CsvWriter(writer, csvConfig))
+                    {
+                        csv.WriteRecords(records);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error! Please check error lo!");
+                Internals.writeerro(ex.Message);
+            }
+        }
         private void Txtpassw_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
