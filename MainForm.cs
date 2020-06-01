@@ -17,17 +17,9 @@ namespace The_vault
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
             InitializeComponent();
-            if (File.Exists(Internals.directory + @"\accounts\accounts" + Environment.UserName + ".data"))
-            {
- string poopie = serialize.deserialize(File.ReadAllText(Internals.directory + @"\accounts\accounts" + Environment.UserName + ".data"));
-            MessageBox.Show(poopie);
-            }
+            
            
-            byte[] hi = Encoding.ASCII.GetBytes("helloo");
-            string poop = Convert.ToBase64String(Internals.encryptdata(hi,Internals.key,Internals.iv));
-            byte[] abc = Convert.FromBase64String(poop);
-            MessageBox.Show(poop+Environment.NewLine+BitConverter.ToString( abc)+Environment.NewLine+ Internals.encryptdata(hi, Internals.key, Internals.iv));
-            MessageBox.Show($"Welcome back, {Internals.grabusername()}!");
+             MessageBox.Show($"Welcome back, {Internals.grabusername()}!");//display username
             
         }
         private static string updateitems(ListView l)
@@ -36,7 +28,7 @@ namespace The_vault
         }
         private void GunaButton1_Click(object sender, EventArgs e)
         {
-            string pwd = "Click to reveal.";//dont store unencrypted password this is 
+         //   string pwd = "Click to reveal.";//dont store unencrypted password this is 
             bool valweb = Internals.validatewebsite(txtwebs.Text.ToLower());//they are both booleans so i could remove these to lower time and increase speed
             bool vallgn = Internals.validateuserandpass(txtlgn.Text);//^
             bool valps = Internals.validateuserandpass(txtpassw.Text);//^^

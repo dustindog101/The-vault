@@ -11,9 +11,11 @@ namespace The_vault
     public class getitems
     {
     }
+    //1:-1
+    //2:
    public class serialize
     {
-        public static string appenditesm(string JSON,int id, string web, string user, string pwd, string date)
+        public static string appenditesm(string JSON,int id, string web, string user, string pwd, string date)//completly ignore this whole method
         {
             var list = JsonConvert.DeserializeObject<List<Items>>(JSON);
             Items item = new Items
@@ -24,6 +26,7 @@ namespace The_vault
                 password = pwd,
                 date = date
             };
+            
 
             list.Add(item);
             return  JsonConvert.SerializeObject(list, Formatting.Indented);

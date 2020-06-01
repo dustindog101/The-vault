@@ -317,7 +317,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Password";
-            this.columnHeader2.Width = 236;
+            this.columnHeader2.Width = 196;
             // 
             // columnHeader3
             // 

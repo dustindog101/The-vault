@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
+
 namespace The_vault
 {
     public partial class Login : Form
@@ -19,6 +21,7 @@ namespace The_vault
         public Login()
         {
             InitializeComponent();
+            Debug.WriteLine("login started");
             if (Internals.checklogin() ==false)
             {
                 gunaLabel3.Text = "Register";
@@ -33,7 +36,6 @@ namespace The_vault
         }
         private void GunaButton1_Click(object sender, EventArgs e)
         {
-
             if (Internals.checklogin() == true)
             {
                 login();
@@ -53,7 +55,7 @@ namespace The_vault
 
             if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
             {
-                if (txtuser.Text == Internals.grabusername()&& txtpass.Text == Internals.grabpassword())
+                if (txtuser.Text == Internals.grabusername()&& Internals.hash(txtpass.Text,txtuser.Text) == Internals.grabpassword())
                 {
                     MessageBox.Show("Logged in!");
                     this.Hide();//hide form
@@ -100,6 +102,7 @@ namespace The_vault
         private void Txtpass_Enter(object sender, EventArgs e)
         {
         }
+
     }
 
     
