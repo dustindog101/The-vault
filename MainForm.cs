@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
 
 namespace The_vault
 {
@@ -20,7 +23,10 @@ namespace The_vault
             
            
              MessageBox.Show($"Welcome back, {Internals.grabusername()}!");//display username
-            
+            if (File.Exists(@"Vault\accounts\accounts.csv"))
+            {
+                readcsv();
+            } 
         }
         private static string updateitems(ListView l)
         {
@@ -37,18 +43,31 @@ namespace The_vault
                 if (vallgn == true & valps == true)
                 {
 
-                    string json = serialize.serilizeitems(id, txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
-                    if (!json.Contains("Error"))
+                    //  string json = serialize.serilizeitems(id, txtwebs.Text, txtlgn.Text, txtpassw.Text, DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy"));
+                    try
                     {
-                        serialize.saveitems(json);
+                        CsvConfiguration csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+                        {
+                            HasHeaderRecord = !File.Exists(@"Vault\accounts\accounts.csv")
+                        };
+
+                        var records = new List<Items> { };
+                        records.Add(new Items { ID = id, website = txtwebs.Text, username = txtlgn.Text, password = txtpassw.Text, date = DateTime.Now.ToString("hh:mm:ssss MM/dd/yyyy") });
+                        using (FileStream fileStream = new FileStream(@"Vault\accounts\accounts.csv", FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                        {
+                            using (var writer = new StreamWriter(fileStream))
+                            using (var csv = new CsvWriter(writer, csvConfig))
+                            {
+                                csv.WriteRecords(records);
+                            }
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"Error uploading credentials to server...please try again...  {json}");
-                        Internals.writeerro(json);
 
+                        MessageBox.Show("Error! Please check error lo!");
+                        Internals.writeerro(ex.Message);
                     }
-
                     try
                     {
 
@@ -102,10 +121,28 @@ namespace The_vault
         private void GunaControlBox1_Click(object sender, EventArgs e)
         {
             Application.ExitThread();
-
+            Application.Exit();
             Environment.Exit(0);
         }
+        public  void readcsv()
+        {
 
+            using (var reader = new StreamReader(@"Vault\accounts\accounts.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<Items>().ToList();
+                foreach (var person in records)
+                {
+                    var items = new ListViewItem(person.ID.ToString());//create a list of items to add essentally
+                    items.SubItems.Add(person.website);
+                    items.SubItems.Add(person.username);
+                    items.SubItems.Add(person.password);
+                    items.SubItems.Add(person.date);//grab the date and time and add it
+                    listView1.Items.Add(items);//add all of the items we created
+                }
+            }
+
+        }
         private void Txtpassw_TextChanged(object sender, EventArgs e)
         {
 

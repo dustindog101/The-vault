@@ -5,7 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using CsvHelper;
+using System.Globalization;
 
 namespace The_vault
 {
@@ -66,6 +67,7 @@ ccd1f839f297122665f83f532b50e789";//the pepper i should change this every time b
                 return true;
             }
         }
+      
         public static string hash(string inp,string salt)
         {
             SHA256 s = SHA256.Create();//creatae new sha256
