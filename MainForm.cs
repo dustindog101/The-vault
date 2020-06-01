@@ -208,6 +208,19 @@ namespace The_vault
         {
 
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sur you want to nuke the applacation?\n This will delete all traces of your logins and login data!","",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                File.Delete(@"Vault\accounts\accounts.csv");
+                Directory.Delete(@"Vault");
+                MessageBox.Show("Done... restarting applacation");
+                //im going to workout
+                Application.ExitThread();
+                Environment.Exit(0);
+            }
+        }
     }
 }
 
