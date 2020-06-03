@@ -36,12 +36,13 @@ a5080936af532819e29b63f092f4d9c3
 78abccf2be35adaa277c194533c29641
 263f228e129d71ca08e2bebf43b74d73
 ccd1f839f297122665f83f532b50e789";//the pepper i should change this every time but ehh
-       public static string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
-       public static string iv = "s6v9y/B?E(H+MbQe";//THE IV
+       public const string key = "kYp3s6v9y$B&E)H@McQfTjWmZq4t7w!z";//KEY, change every update
+       public const string iv = "s6v9y/B?E(H+MbQe";//THE IV
         public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault";//where data will be stored
         public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\logindata.data";//file locatuin
         public static bool start(string username, string password)
         {
+            
             string u = username;//grab the username
             string p =hash(password, username); //grab the password
             if (File.Exists(file) == true)

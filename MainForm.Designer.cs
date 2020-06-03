@@ -33,10 +33,12 @@
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
+            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaControlBox2 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
-            this.lbltitleitems = new Guna.UI.WinForms.GunaLabel();
             this.gunaDragControl2 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
@@ -55,12 +57,15 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gunaDragControl3 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.nukeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gunaDragControl4 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gunaLinePanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -81,7 +86,7 @@
             this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(3, 5);
+            this.gunaLabel3.Location = new System.Drawing.Point(42, 6);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(136, 37);
             this.gunaLabel3.TabIndex = 5;
@@ -90,15 +95,53 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.gunaImageButton1);
+            this.panel1.Controls.Add(this.lbltitleitems);
             this.panel1.Controls.Add(this.gunaLabel5);
             this.panel1.Controls.Add(this.gunaControlBox2);
             this.panel1.Controls.Add(this.gunaControlBox1);
             this.panel1.Controls.Add(this.gunaLabel3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 42);
+            this.panel1.Size = new System.Drawing.Size(979, 42);
             this.panel1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::The_vault.Properties.Resources.The_vault;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(38, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDoubleClick);
+            // 
+            // gunaImageButton1
+            // 
+            this.gunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaImageButton1.Image = global::The_vault.Properties.Resources.icons8_atomic_bomb_96;
+            this.gunaImageButton1.ImageSize = new System.Drawing.Size(35, 35);
+            this.gunaImageButton1.Location = new System.Drawing.Point(836, 6);
+            this.gunaImageButton1.Name = "gunaImageButton1";
+            this.gunaImageButton1.OnHoverImage = global::The_vault.Properties.Resources.icons8_explosion_96;
+            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton1.Size = new System.Drawing.Size(39, 33);
+            this.gunaImageButton1.TabIndex = 15;
+            this.gunaImageButton1.Click += new System.EventHandler(this.GunaImageButton1_Click);
+            // 
+            // lbltitleitems
+            // 
+            this.lbltitleitems.AutoSize = true;
+            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbltitleitems.Location = new System.Drawing.Point(49, 0);
+            this.lbltitleitems.Name = "lbltitleitems";
+            this.lbltitleitems.Size = new System.Drawing.Size(22, 15);
+            this.lbltitleitems.TabIndex = 14;
+            this.lbltitleitems.Text = "???";
             // 
             // gunaLabel5
             // 
@@ -106,11 +149,11 @@
             this.gunaLabel5.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.gunaLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel5.Location = new System.Drawing.Point(130, 13);
+            this.gunaLabel5.Location = new System.Drawing.Point(169, 14);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(395, 30);
+            this.gunaLabel5.Size = new System.Drawing.Size(386, 30);
             this.gunaLabel5.TabIndex = 8;
-            this.gunaLabel5.Text = "-A local Open-Source Password vault";
+            this.gunaLabel5.Text = "-A local OpenSource Password vault";
             // 
             // gunaControlBox2
             // 
@@ -120,7 +163,7 @@
             this.gunaControlBox2.ControlBoxType = Guna.UI.WinForms.FormControlBoxType.MinimizeBox;
             this.gunaControlBox2.IconColor = System.Drawing.Color.Black;
             this.gunaControlBox2.IconSize = 15F;
-            this.gunaControlBox2.Location = new System.Drawing.Point(705, 4);
+            this.gunaControlBox2.Location = new System.Drawing.Point(881, 4);
             this.gunaControlBox2.Name = "gunaControlBox2";
             this.gunaControlBox2.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.gunaControlBox2.OnHoverIconColor = System.Drawing.Color.White;
@@ -135,7 +178,7 @@
             this.gunaControlBox1.AnimationSpeed = 0.03F;
             this.gunaControlBox1.IconColor = System.Drawing.Color.Black;
             this.gunaControlBox1.IconSize = 15F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(751, 4);
+            this.gunaControlBox1.Location = new System.Drawing.Point(927, 4);
             this.gunaControlBox1.Name = "gunaControlBox1";
             this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
@@ -143,17 +186,6 @@
             this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
             this.gunaControlBox1.TabIndex = 6;
             this.gunaControlBox1.Click += new System.EventHandler(this.GunaControlBox1_Click);
-            // 
-            // lbltitleitems
-            // 
-            this.lbltitleitems.AutoSize = true;
-            this.lbltitleitems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lbltitleitems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbltitleitems.Location = new System.Drawing.Point(7, 0);
-            this.lbltitleitems.Name = "lbltitleitems";
-            this.lbltitleitems.Size = new System.Drawing.Size(22, 15);
-            this.lbltitleitems.TabIndex = 14;
-            this.lbltitleitems.Text = "???";
             // 
             // gunaDragControl2
             // 
@@ -172,7 +204,7 @@
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(753, 7);
+            this.gunaButton1.Location = new System.Drawing.Point(869, 7);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -212,7 +244,6 @@
             // 
             // gunaLinePanel1
             // 
-            this.gunaLinePanel1.Controls.Add(this.lbltitleitems);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel4);
             this.gunaLinePanel1.Controls.Add(this.gunaLabel2);
             this.gunaLinePanel1.Controls.Add(this.txtpassw);
@@ -224,7 +255,7 @@
             this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
             this.gunaLinePanel1.Location = new System.Drawing.Point(0, 397);
             this.gunaLinePanel1.Name = "gunaLinePanel1";
-            this.gunaLinePanel1.Size = new System.Drawing.Size(800, 52);
+            this.gunaLinePanel1.Size = new System.Drawing.Size(979, 52);
             this.gunaLinePanel1.TabIndex = 11;
             // 
             // gunaLabel4
@@ -282,8 +313,9 @@
             this.panel2.Controls.Add(this.listView1);
             this.panel2.Location = new System.Drawing.Point(0, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 356);
+            this.panel2.Size = new System.Drawing.Size(979, 356);
             this.panel2.TabIndex = 12;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // listView1
             // 
@@ -302,7 +334,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(800, 356);
+            this.listView1.Size = new System.Drawing.Size(979, 356);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -312,26 +344,27 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "ID:";
+            this.columnHeader4.Width = 65;
             // 
             // headwebsite
             // 
             this.headwebsite.Text = "Website";
-            this.headwebsite.Width = 230;
+            this.headwebsite.Width = 245;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Login";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Width = 237;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Password";
-            this.columnHeader2.Width = 196;
+            this.columnHeader2.Width = 220;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Date";
-            this.columnHeader3.Width = 165;
+            this.columnHeader3.Width = 206;
             // 
             // gunaDragControl3
             // 
@@ -340,54 +373,67 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteSelectedItemToolStripMenuItem,
-            this.showPasswordToolStripMenuItem});
+            this.nukeToolStripMenuItem,
+            this.informationToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
+            this.githubToolStripMenuItem,
+            this.aboutToolStripMenuItem,
+            this.aboutToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 48);
+            this.contextMenuStrip1.ShowCheckMargin = true;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 136);
+            this.contextMenuStrip1.Text = "The vault";
             // 
-            // deleteSelectedItemToolStripMenuItem
+            // nukeToolStripMenuItem
             // 
-            this.deleteSelectedItemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editValueToolStripMenuItem,
-            this.deleteValueToolStripMenuItem});
-            this.deleteSelectedItemToolStripMenuItem.Name = "deleteSelectedItemToolStripMenuItem";
-            this.deleteSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.deleteSelectedItemToolStripMenuItem.Text = "Edit selected value";
+            this.nukeToolStripMenuItem.Name = "nukeToolStripMenuItem";
+            this.nukeToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.nukeToolStripMenuItem.Text = "Nuke";
+            this.nukeToolStripMenuItem.Click += new System.EventHandler(this.NukeToolStripMenuItem_Click);
             // 
-            // editValueToolStripMenuItem
+            // informationToolStripMenuItem
             // 
-            this.editValueToolStripMenuItem.Name = "editValueToolStripMenuItem";
-            this.editValueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.editValueToolStripMenuItem.Text = "Edit value";
+            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.informationToolStripMenuItem.Text = "Information";
+            this.informationToolStripMenuItem.Click += new System.EventHandler(this.InformationToolStripMenuItem_Click);
             // 
-            // deleteValueToolStripMenuItem
+            // checkForUpdatesToolStripMenuItem
             // 
-            this.deleteValueToolStripMenuItem.Name = "deleteValueToolStripMenuItem";
-            this.deleteValueToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.deleteValueToolStripMenuItem.Text = "Delete value";
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check for updates";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
-            // showPasswordToolStripMenuItem
+            // githubToolStripMenuItem
             // 
-            this.showPasswordToolStripMenuItem.Name = "showPasswordToolStripMenuItem";
-            this.showPasswordToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.showPasswordToolStripMenuItem.Text = "Show password";
+            this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
+            this.githubToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.githubToolStripMenuItem.Text = "Github";
             // 
-            // button1
+            // aboutToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(600, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "NUKE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.aboutToolStripMenuItem.Text = "Changelog";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.aboutToolStripMenuItem1.Text = "About";
+            // 
+            // gunaDragControl4
+            // 
+            this.gunaDragControl4.TargetControl = this.lbltitleitems;
             // 
             // MainForm
             // 
             this.AcceptButton = this.gunaButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(980, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.gunaLinePanel1);
             this.Controls.Add(this.panel1);
@@ -395,8 +441,10 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -433,10 +481,14 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem deleteSelectedItemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editValueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteValueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showPasswordToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private Guna.UI.WinForms.GunaDragControl gunaDragControl4;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem nukeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
     }
 }
