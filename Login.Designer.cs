@@ -1,4 +1,11 @@
-﻿namespace The_vault
+﻿using System;
+using System.Data;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
+
+namespace The_vault
 {
     partial class Login
     {
@@ -42,6 +49,7 @@
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaDragControl2 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +113,6 @@
             this.txtpass.TabIndex = 2;
             this.txtpass.TextOffsetX = 10;
             this.txtpass.UseSystemPasswordChar = true;
-            this.txtpass.Enter += new System.EventHandler(this.Txtpass_Enter);
             // 
             // gunaLabel1
             // 
@@ -201,12 +208,23 @@
             // 
             this.timer1.Interval = 5;
             // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.gunaLabel4.ForeColor = System.Drawing.Color.Red;
+            this.gunaLabel4.Location = new System.Drawing.Point(43, 251);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(0, 25);
+            this.gunaLabel4.TabIndex = 7;
+            // 
             // Login
             // 
             this.AcceptButton = this.btnlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 439);
+            this.Controls.Add(this.gunaLabel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaLabel1);
@@ -222,7 +240,8 @@
             this.PerformLayout();
 
         }
-
+     
+       
         #endregion
 
         public Guna.UI.WinForms.GunaButton btnlogin;
@@ -238,6 +257,7 @@
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl2;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
     }
 }
 

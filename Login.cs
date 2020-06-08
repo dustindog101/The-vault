@@ -21,10 +21,15 @@ namespace The_vault
         public Login()
         {
             InitializeComponent();
+          
             Debug.WriteLine("login started");
             if (Internals.checklogin() ==false)
             {
                 gunaLabel3.Text = "Register";
+            }
+            else
+            {
+                Internals.initialize();
             }
 
         }
@@ -55,7 +60,7 @@ namespace The_vault
 
             if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
             {
-                if (txtuser.Text == Internals.grabusername()&& Internals.hash(txtpass.Text,txtuser.Text) == Internals.grabpassword())
+                if (txtuser.Text == Internals.grabusername()&& Internals.hash(txtpass.Text,Internals.grabsalt()) == Internals.grabpassword())
                 {
                     MessageBox.Show("Logged in!");
                     this.Hide();//hide form
@@ -72,11 +77,13 @@ namespace The_vault
                 MessageBox.Show("Please check your username/password!", "Invalid login credentials");
             }
         }
+
       private void register()
         {
+
             if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
             {
-
+                gunaLabel4.Text = "Registering... This may take a while";
                 if (Internals.start(txtuser.Text, txtpass.Text) == true)//register user/pass
                 {
                     MessageBox.Show("Registered!");
@@ -99,9 +106,7 @@ namespace The_vault
             }
         }
 
-        private void Txtpass_Enter(object sender, EventArgs e)
-        {
-        }
+       
 
     }
 
