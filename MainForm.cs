@@ -20,7 +20,9 @@ namespace The_vault
         private int id = 0;
         public MainForm()//we completly finished login/encryption/decryption/validation/etc etc i forgot, before i work on the main stuff im going to see what features other password vaults have
         {
-            InitializeComponent(); MessageBox.Show($"Welcome back, {Internals.grabusername()}!");//display username
+            InitializeComponent();
+            Internals.initialize();
+            MessageBox.Show($"Welcome back, {Internals.grabusername()}!");//display username
             if (File.Exists(@"Vault\accounts\accounts.csv"))
             {
                 readcsv();
@@ -31,7 +33,7 @@ namespace The_vault
                 Directory.CreateDirectory(@"Vault\accounts"); ;
             }
             lbltitleitems.Text = $"Logins Saved: {listView1.Items.Count}";
-
+            MessageBox.Show(Properties.Settings.Default.Key+"\n\n"+ Properties.Settings.Default.InitializationVector+"\n\n"+ Properties.Settings.Default.Pepper);
         }
         private static string updateitems(ListView l)
         {
@@ -211,6 +213,7 @@ namespace The_vault
         {
             if (MessageBox.Show("Are you sure you want to nuke the applacation?\n This will delete all traces of your logins and login data!", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
+                Properties.Settings.Default.Reset();
                 File.Delete(@"Vault\accounts\accounts.csv");
                 if (Directory.Exists(@"Vault"))
                 {
@@ -240,14 +243,6 @@ namespace The_vault
                         File.WriteAllText("File.txt", $"pumped {a}bytes");
                     }
                 }
-                else
-                {
-                    Application.Restart();
-                }
-
-
-
-
                 Application.ExitThread();
                 Environment.Exit(0);
             }
@@ -334,6 +329,8 @@ namespace The_vault
             System.Threading.Thread.Sleep(2000);
             MessageBox.Show("Your up to date!");
         }
+
+      
     }
 }
 

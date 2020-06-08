@@ -25,6 +25,7 @@ namespace The_vault
             Debug.WriteLine("login started");
             if (Internals.checklogin() ==false)
             {
+                Properties.Settings.Default.Reset();
                 gunaLabel3.Text = "Register";
             }
             else

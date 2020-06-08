@@ -13,9 +13,9 @@ namespace The_vault
     public static class Internals
     {
 
-        private static string pepper= null;//the pepper i should change this every time but ehh
-       public static string key = null;//KEY, change every update
-       public static string iv = null;//THE IV
+        private static string pepper= Properties.Settings.Default.Pepper;//the pepper i should change this every time but ehh
+       public static string key = Properties.Settings.Default.Pepper;//KEY, change every update
+       public static string iv = Properties.Settings.Default.Pepper;//THE IV
         public static string directory = AppDomain.CurrentDomain.BaseDirectory + @"Vault";//where data will be stored
         public static string file = AppDomain.CurrentDomain.BaseDirectory + @"Vault\login" + @"\logindata.data";//file locatuin
         public static bool start(string username, string password)
@@ -26,6 +26,11 @@ namespace The_vault
             string u = username;//grab the username
             string p =hash(password, s); //grab the password
             prop.Reset();
+            prop.Key = "";
+            prop.InitializationVector = "";
+            prop.Pepper = "";
+            pepper = prop.Pepper;
+            key = prop.Key;
             prop.Key = generategoodrandom(32);
             prop.InitializationVector = generategoodrandom(16);
             prop.Pepper = generategoodrandom(rnd.Next(10000));
