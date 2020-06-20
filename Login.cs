@@ -50,6 +50,7 @@ namespace The_vault
             }
             else
             {
+                gunaLabel4.Text = "Registering... This may take a while";
                 register();
             }
 
@@ -84,7 +85,7 @@ namespace The_vault
 
             if (Internals.validate(txtuser.Text) && Internals.validate(txtpass.Text))//make sure usertext and passtext is valid // i shouldve validated in internals but its too late now
             {
-                gunaLabel4.Text = "Registering... This may take a while";
+               
                 if (Internals.start(txtuser.Text, txtpass.Text) == true)//register user/pass
                 {
                     MessageBox.Show("Registered!");
@@ -104,7 +105,7 @@ namespace The_vault
             else
             {
                 MessageBox.Show("Username & password must be at least 5 charcters");
-            }
+            }//im  just gonna mess up on porpose
         }
 
        

@@ -37,6 +37,7 @@ namespace The_vault
             pepper = prop.Pepper;
             key = prop.Key;
             iv = prop.InitializationVector;
+            prop.Save();
             if (File.Exists(file) == true)
             {
                 return false;
@@ -67,6 +68,7 @@ namespace The_vault
             pepper = abc.Pepper;
             key = abc.Key;
             iv = abc.InitializationVector;
+            abc.Save();
         }
         public static string generategoodrandom(int length)
         {
@@ -78,7 +80,7 @@ namespace The_vault
             for (int i = 0; i < rnd.Next(80, 10999); i++)
             {
                 byte[] cool = Encoding.ASCII.GetBytes(rnd.Next(0, int.MaxValue).ToString());
-                System.Threading.Thread.Sleep(rnd.Next(0, 10));
+                System.Threading.Thread.Sleep(5);
                 abcc += Convert.ToBase64String(c.ComputeHash(cool));
             }
             return abcc.Replace("=", "").Substring(0, length);
